@@ -55,10 +55,13 @@ class Program
         }
 
         ConsoleKeyInfo keyInfo = Console.ReadKey();
-        Console.WriteLine("Key: " + keyInfo.Key + ", Char: " + keyInfo.KeyChar);
+
         if(keyInfo.Key == ConsoleKey.UpArrow){
             if(option > 1){
                 option--;
+                Console.Clear();
+                mainMenu(option);
+            }else{
                 Console.Clear();
                 mainMenu(option);
             }
@@ -67,10 +70,16 @@ class Program
                 option++;
                 Console.Clear();
                 mainMenu(option);
+            }else{
+                Console.Clear();
+                mainMenu(option);
             }
         }else if(keyInfo.Key == ConsoleKey.Enter){
             Console.Clear();
             finalMenu(option);
+        }else{
+            Console.Clear();
+            mainMenu(option);
         }
 
         Console.ReadLine();
