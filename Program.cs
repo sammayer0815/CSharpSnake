@@ -4,90 +4,56 @@ class Program
 {
     static void Main()
     {
-        // // Set the width and height of the console window
-        // Console.WindowWidth = 80;  // Set the width to 80 columns
-        // Console.WindowHeight = 25; // Set the height to 25 rows
-
-        // // Your code here
-        // Console.BackgroundColor = ConsoleColor.Blue;
-        // Console.ForegroundColor = ConsoleColor.White;
-        // Console.WriteLine("White on blue.");
-        // Console.WriteLine("Another line.");
-        // Console.ResetColor();
-
-        // ConsoleKeyInfo keyInfo = Console.ReadKey();
-        // Console.WriteLine("Key: " + keyInfo.Key + ", Char: " + keyInfo.KeyChar);
-
-
-        // Console.WriteLine("This is a sample program with a custom console window size.");
-        // Console.ReadLine(); // Pause to see the result
         int option = 1;
-        mainMenu(option);
+
+        do
+        {
+            Console.Clear();
+            PrintOptions(option);
+
+            ConsoleKeyInfo keyInfo = Console.ReadKey();
+
+            switch (keyInfo.Key)
+            {
+                case ConsoleKey.UpArrow:
+                    option = Math.Max(1, option - 1);
+                    break;
+
+                case ConsoleKey.DownArrow:
+                    option = Math.Min(3, option + 1);
+                    break;
+
+                case ConsoleKey.Enter:
+                    Console.Clear();
+                    FinalMenu(option);
+                    return;
+
+                default:
+                    continue;
+            }
+        } while (true);
     }
 
-    static void mainMenu(int option)
+    static void PrintOptions(int selectedOption)
     {
-        if(option == 1){
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.BackgroundColor = ConsoleColor.Blue;
-            Console.WriteLine("Option 1");
-            Console.ResetColor();
-        }else{
-            Console.WriteLine("Option 1");
-        }
-
-        if(option == 2){
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.BackgroundColor = ConsoleColor.Blue;
-            Console.WriteLine("Option 2");
-            Console.ResetColor();
-        }else{          
-            Console.WriteLine("Option 2");
-        }
-
-        if(option == 3){
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.BackgroundColor = ConsoleColor.Blue;
-            Console.WriteLine("Option 3");
-            Console.ResetColor();
-        }else{
-            Console.WriteLine("Option 3");
-        }
-
-        ConsoleKeyInfo keyInfo = Console.ReadKey();
-
-        if(keyInfo.Key == ConsoleKey.UpArrow){
-            if(option > 1){
-                option--;
-                Console.Clear();
-                mainMenu(option);
-            }else{
-                Console.Clear();
-                mainMenu(option);
+        for (int i = 1; i <= 3; i++)
+        {
+            if (i == selectedOption)
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.BackgroundColor = ConsoleColor.Blue;
             }
-        }else if(keyInfo.Key == ConsoleKey.DownArrow){          
-            if(option < 3){
-                option++;
-                Console.Clear();
-                mainMenu(option);
-            }else{
-                Console.Clear();
-                mainMenu(option);
-            }
-        }else if(keyInfo.Key == ConsoleKey.Enter){
-            Console.Clear();
-            finalMenu(option);
-        }else{
-            Console.Clear();
-            mainMenu(option);
-        }
 
+            Console.WriteLine($"Option {i}");
+
+            Console.ResetColor();
+        }
+    }
+
+    static void FinalMenu(int option)
+    {
+        // Implement your final menu logic here
+        Console.WriteLine($"Selected Option is: {option}.");
         Console.ReadLine();
-    }
-
-    static void finalMenu(int option)
-    {
-        Console.WriteLine("Selected option: " + option);
-        Console.ReadLine(); // Pause to see the result
     }
 }
