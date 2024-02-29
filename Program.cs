@@ -1,23 +1,22 @@
-﻿using System;
-using System.Diagnostics;
-
-class Program
+﻿class Program
 {
-    public static int pos_x = 15;
-    public static int pos_y = 15;
-    public static int map_width = 25;
-    public static int map_height = 25;
-    public static int dir = 2;
+    public static int pos_x = 15, pos_y = 15, map_width = 25, map_height = 25, curDir = 2, dir = 2, speed = 500;
     public static bool alive = true;
-    public static int speed = 100;
-    public static int[,] snakePos = {{pos_x, pos_y}};
-        
+    public static List<Tuple<int, int>> snakePos = new List<Tuple<int, int>>()
+    {
+        new Tuple<int, int>(pos_x, pos_y)
+    };
+
+    public static Tuple<int, int> applePos;
+
     static void Main()
     {
         Console.Clear();
         drawMap();
+        GenerateApple();
         snakeLoop();
     }
+
     static void snakeLoop()
     {
         while (alive)
@@ -44,12 +43,17 @@ class Program
                         break;
                 }
 
+                if (Math.Abs(dir - curDir) != 2)
+                {
+                    curDir = dir;
+                }
+
                 while (Console.KeyAvailable)
                 {
                     Console.ReadKey(true);
                 }
             }
-            drawSnake(dir); 
+            drawSnake(curDir);
             deathCheck();
             Thread.Sleep(speed);
         }
@@ -57,8 +61,6 @@ class Program
 
     static void drawSnake(int dir)
     {
-        Console.SetCursorPosition(pos_x, pos_y);
-        Console.Write(" ");
         switch (dir)
         {
             case 0:
@@ -74,21 +76,81 @@ class Program
                 pos_x += 1;
                 break;
         }
-        Console.SetCursorPosition(pos_x, pos_y);
+
+        snakePos.Add(new Tuple<int, int>(pos_x, pos_y));
+
+        // Only do if no apple in next head position
+        if (!appleCheck())
+        {
+            destroyTail();
+        }
+        else
+        {
+            GenerateApple();
+        }
+        drawHead();
+    }
+
+    static void drawHead()
+    {
+        Tuple<int, int> lastPos = snakePos[snakePos.Count - 1];
+        Console.SetCursorPosition(lastPos.Item1, lastPos.Item2);
         Console.Write("#");
     }
 
-    static void deathCheck()
+    static void destroyTail()
     {
-        if (pos_x == (map_width - 1) || pos_x == 0)
-        {
-            death();
-        }
-        else if (pos_y == (map_height - 1) || pos_y == 0)
-        {
-            death();
-        }
+        Console.SetCursorPosition(snakePos[0].Item1, snakePos[0].Item2);
+        Console.Write(" ");
+        snakePos.RemoveAt(0);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    static bool appleCheck()
+    {
+        Tuple<int, int> lastSnakePos = snakePos[snakePos.Count - 1];
+        return lastSnakePos.Item1 == applePos.Item1 && lastSnakePos.Item2 == applePos.Item2;
+    }
+
+    static void GenerateApple()
+    {
+        Random random = new Random();
+
+        while (true)
+        {
+            int apple_x = random.Next(1, map_width - 1);
+            int apple_y = random.Next(1, map_height - 1);
+
+            applePos = new Tuple<int, int>(apple_x, apple_y);
+
+            if (!snakePos.Contains(applePos))
+            {
+                break;
+            }
+        }
+
+        Console.SetCursorPosition(applePos.Item1, applePos.Item2);
+        Console.Write("@");
+    }
+
+
+
+
+
+
 
     static void drawMap()
     {
@@ -111,99 +173,26 @@ class Program
         }
     }
 
+    static void deathCheck()
+    {
+        if (pos_x == (map_width - 1) || pos_x == 0)
+        {
+            death();
+        }
+        else if (pos_y == (map_height - 1) || pos_y == 0)
+        {
+            death();
+        }
+        else if (snakePos.GetRange(0, snakePos.Count - 1).Contains(snakePos.Last()))
+        {
+            death();
+        }
+    }
+
     static void death()
     {
         alive = false;
         Console.Clear();
         Console.WriteLine("You died");
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    static void loop()
-    {
-        int option = 1;
-
-        do
-        {
-            Console.Clear();
-            PrintOptions(option);
-
-            ConsoleKeyInfo keyInfo = Console.ReadKey();
-
-            switch (keyInfo.Key)
-            {
-                case ConsoleKey.UpArrow:
-                    option = Math.Max(1, option - 1);
-                    break;
-
-                case ConsoleKey.DownArrow:
-                    option = Math.Min(3, option + 1);
-                    break;
-
-                case ConsoleKey.Enter:
-                    Console.Clear();
-                    FinalMenu(option);
-                    return;
-
-                default:
-                    continue;
-            }
-        } while (true);
-    }
-
-    static void PrintOptions(int selectedOption)
-    {
-        for (int i = 1; i <= 3; i++)
-        {
-            if (i == selectedOption)
-            {
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.BackgroundColor = ConsoleColor.Blue;
-            }
-
-            Console.WriteLine($"Option {i}");
-
-            Console.ResetColor();
-        }
-    }
-
-    static void FinalMenu(int option)
-    {
-        // Implement your final menu logic here
-        Console.WriteLine($"Selected Option is: {option}.");
-        Console.ReadLine();
     }
 }
