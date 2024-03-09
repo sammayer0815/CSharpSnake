@@ -1,6 +1,6 @@
 ﻿class Program
 {
-    public static int pos_x = 15, pos_y = 15, map_width = 25, map_height = 25, curDir = 2, dir = 2, speed = 500;
+    public static int pos_x = 15, pos_y = 15, map_width = 25, map_height = 25, curDir = 2, dir = 2, speed = 100;
     public static bool alive = true;
     public static List<Tuple<int, int>> snakePos = new List<Tuple<int, int>>()
     {
@@ -11,10 +11,13 @@
 
     static void Main()
     {
-        Console.Clear();
-        drawMap();
-        GenerateApple();
-        snakeLoop();
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+        UI UIInstance = new UI();
+        UIInstance.GameMenu();
+        // Console.Clear();
+        // drawMap();
+        // GenerateApple();
+        // snakeLoop();
     }
 
     static void snakeLoop()
@@ -48,6 +51,7 @@
                     curDir = dir;
                 }
 
+                // If remove u break game :(, So don't.
                 while (Console.KeyAvailable)
                 {
                     Console.ReadKey(true);
