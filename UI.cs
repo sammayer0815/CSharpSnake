@@ -32,26 +32,30 @@ class UI
 
     public void GameMenu()
     {
-        Console.WriteLine("┏━━━━━━━━━━━━━━━━━┓");
-        Console.WriteLine("┃   Score:        ┃");
-        Console.WriteLine("┃   Time:         ┃");
-        Console.WriteLine("┣━━━━━━━━━━━━━━━━━┫");
-        Console.WriteLine("┃                 ┃");
-        Console.WriteLine("┃                 ┃");
-        Console.WriteLine("┃                 ┃");
-        Console.WriteLine("┃                 ┃");
-        Console.WriteLine("┃                 ┃");
-        Console.WriteLine("┃                 ┃");
-        Console.WriteLine("┃                 ┃");
-        Console.WriteLine("┃                 ┃");
-        Console.WriteLine("┃                 ┃");
-        Console.WriteLine("┃                 ┃");
-        Console.WriteLine("┃                 ┃");
-        Console.WriteLine("┃                 ┃");
-        Console.WriteLine("┃                 ┃");
-        Console.WriteLine("┃                 ┃");
-        Console.WriteLine("┃                 ┃");
-        Console.WriteLine("┗━━━━━━━━━━━━━━━━━┛");
+        Console.WriteLine("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+        Console.WriteLine("┃   Score:                                      ┃");
+        Console.WriteLine("┃   Time:                                       ┃");
+        Console.WriteLine("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫");
+        Console.WriteLine("┃                                               ┃");
+        Console.WriteLine("┃                                               ┃");
+        Console.WriteLine("┃                                               ┃");
+        Console.WriteLine("┃                                               ┃");
+        Console.WriteLine("┃                                               ┃");
+        Console.WriteLine("┃                                               ┃");
+        Console.WriteLine("┃                                               ┃");
+        Console.WriteLine("┃                                               ┃");
+        Console.WriteLine("┃                                               ┃");
+        Console.WriteLine("┃                                               ┃");
+        Console.WriteLine("┃                                               ┃");
+        Console.WriteLine("┃                                               ┃");
+        Console.WriteLine("┃                                               ┃");
+        Console.WriteLine("┃                                               ┃");
+        Console.WriteLine("┃                                               ┃");
+        Console.WriteLine("┃                                               ┃");
+        Console.WriteLine("┃                                               ┃");
+        Console.WriteLine("┃                                               ┃");
+        Console.WriteLine("┃                                               ┃");
+        Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
     }
 
     public void HighscoreMenu()
