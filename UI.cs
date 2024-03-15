@@ -123,8 +123,8 @@ class UI
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃         Menu      (Press 1)                            ┃");
-        Console.WriteLine("┃         Highscore (Press 2)                            ┃");
+        Console.WriteLine("┃                     Menu      (Press 1)                ┃");
+        Console.WriteLine("┃                     Highscore (Press 2)                ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
@@ -162,5 +162,31 @@ class UI
         Console.WriteLine("┗━━━━━━━━━━━━━━━━━┛");
     }
 
+    public void ChooseDifficulty()
+    {
+        Console.WriteLine("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                   Choose Difficulty                    ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                        Easy                            ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                        Medium                          ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                        Hard                            ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
+    }
 
 }
