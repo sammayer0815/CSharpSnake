@@ -77,11 +77,11 @@ class UI
         Console.WriteLine("┃    8.                                                  ┃");
         Console.WriteLine("┃    9.                                                  ┃");
         Console.WriteLine("┃    10.                                                 ┃");
-        Console.WriteLine("┃    11.                                                 ┃");
-        Console.WriteLine("┃    12.                                                 ┃");
-        Console.WriteLine("┃    13.                                                 ┃");
-        Console.WriteLine("┃    14.                                                 ┃");
-        Console.WriteLine("┃    15.                                                 ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃    Easy                 Medium                 Hard    ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃    Go back to home                                     ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
     }
@@ -162,6 +162,7 @@ class UI
         Console.WriteLine("┗━━━━━━━━━━━━━━━━━┛");
     }
 
+    // Back to ?
     public void ChooseDifficulty()
     {
         Console.WriteLine("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
@@ -171,13 +172,11 @@ class UI
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                        Easy                            ┃");
+        Console.WriteLine("┃                         Easy                           ┃");
         Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                        Medium                          ┃");
+        Console.WriteLine("┃                         Medium                         ┃");
         Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                        Hard                            ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                         Hard                           ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
@@ -185,10 +184,13 @@ class UI
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃    Go back                                             ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
     }
 
+    // Back to ?
     public void EnterUsername()
     {
         Console.WriteLine("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
@@ -211,7 +213,7 @@ class UI
         Console.WriteLine("┃                         Start                          ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃    Go back                                             ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
     }
