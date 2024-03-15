@@ -30,6 +30,62 @@ class UI
         Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
     }
 
+    // Back to ?
+    public void ChooseDifficulty()
+    {
+        Console.WriteLine("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                   Choose Difficulty                    ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                         Easy                           ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                         Medium                         ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                         Hard                           ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃    Go back                                             ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
+    }
+
+    // Back to ?
+    public void EnterUsername()
+    {
+        Console.WriteLine("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                  Enter your username                   ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                         Start                          ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃    Go back                                             ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
+    }
+
     // TODO: pause menu button in the center
     public void GameplayMenu()
     {
@@ -55,6 +111,34 @@ class UI
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
+    }
+
+    public void DeathMenu()
+    {
+        Console.WriteLine("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃   _____ _____ _____ _____    _____ _____ _____ _____   ┃");
+        Console.WriteLine("┃  |   __|  _  |     |   __|  |     |  |  |   __| __  |  ┃");
+        Console.WriteLine("┃  |  |  |     | | | |   __|  |  |  |  |  |   __|    -|  ┃");
+        Console.WriteLine("┃  |_____|__|__|_|_|_|_____|  |_____|\\___/|_____|__|__|  ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃    Score:                                              ┃");
+        Console.WriteLine("┃    Time:                                               ┃");
+        Console.WriteLine("┃    Rank:                                               ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃    Go back to home                      Leaderboard    ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
     }
@@ -142,34 +226,6 @@ class UI
         Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
     }
 
-    public void DeathMenu()
-    {
-        Console.WriteLine("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃   _____ _____ _____ _____    _____ _____ _____ _____   ┃");
-        Console.WriteLine("┃  |   __|  _  |     |   __|  |     |  |  |   __| __  |  ┃");
-        Console.WriteLine("┃  |  |  |     | | | |   __|  |  |  |  |  |   __|    -|  ┃");
-        Console.WriteLine("┃  |_____|__|__|_|_|_|_____|  |_____|\\___/|_____|__|__|  ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃    Score:                                              ┃");
-        Console.WriteLine("┃    Time:                                               ┃");
-        Console.WriteLine("┃    Rank:                                               ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃    Go back to home                      Leaderboard    ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
-    }
-
     public void CommitScore()
     {
         Console.WriteLine("┏━━━━━━━━━━━━━━━━━┓");
@@ -192,62 +248,6 @@ class UI
         Console.WriteLine("┃                 ┃");
         Console.WriteLine("┃                 ┃");
         Console.WriteLine("┗━━━━━━━━━━━━━━━━━┛");
-    }
-
-    // Back to ?
-    public void ChooseDifficulty()
-    {
-        Console.WriteLine("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                   Choose Difficulty                    ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                         Easy                           ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                         Medium                         ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                         Hard                           ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃    Go back                                             ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
-    }
-
-    // Back to ?
-    public void EnterUsername()
-    {
-        Console.WriteLine("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                  Enter your username                   ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                         Start                          ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃    Go back                                             ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
     }
 
 }
