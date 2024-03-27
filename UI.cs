@@ -64,6 +64,16 @@ class UI
             case "Quit":
                 Environment.Exit(0);
                 break;
+            case "Easy":
+                UIInstance.GamePlayMenu("Easy");
+                break;
+            case "Medium":
+                UIInstance.GamePlayMenu("Medium");
+                break;
+            case "Hard":
+                UIInstance.GamePlayMenu("Hard");
+                break;
+
         }
     }
 
@@ -140,9 +150,19 @@ class UI
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
+
+
+        List<Tuple<int, int, string>> options = new List<Tuple<int, int, string>>
+        {
+            new Tuple<int, int, string>(24, 8, "Easy"),
+            new Tuple<int, int, string>(24, 9, "Medium"),
+            new Tuple<int, int, string>(24, 10, "Hard"),
+            new Tuple<int, int, string>(24, 11, "MainMenu")
+        };
+        ui(options, 0);
     }
 
-    public void GamePlayMenu()
+    public void GamePlayMenu(string Difficulty)
     {
         Console.WriteLine("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
         Console.WriteLine("┃   Score:                                               ┃");
@@ -167,6 +187,10 @@ class UI
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
+
+        Snake SnakeInstance = new Snake();
+
+        SnakeInstance.snakeLoop(Difficulty);
     }
 
     public void DeathMenu()

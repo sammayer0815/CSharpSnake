@@ -13,19 +13,21 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\samma\\Code\\CSharp\\Snake\\Snake.csproj",
+      "projectUniqueName": "C:\\Users\\samma\\Code\\Csharp\\CSharpSnake\\Snake.csproj",
       "projectName": "Snake",
-      "projectPath": "C:\\Users\\samma\\Code\\CSharp\\Snake\\Snake.csproj",
+      "projectPath": "C:\\Users\\samma\\Code\\Csharp\\CSharpSnake\\Snake.csproj",
       "packagesPath": "C:\\Users\\samma\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\samma\\Code\\CSharp\\Snake\\obj\\",
+      "outputPath": "C:\\Users\\samma\\Code\\Csharp\\CSharpSnake\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\samma\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\samma\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -38,6 +40,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -59,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
