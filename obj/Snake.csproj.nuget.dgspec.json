@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\samma\\Code\\Csharp\\CSharpSnake\\Snake.csproj": {}
+    "D:\\Coding\\School Coding\\CSharpSnake\\Snake.csproj": {}
   },
   "projects": {
-    "C:\\Users\\samma\\Code\\Csharp\\CSharpSnake\\Snake.csproj": {
+    "D:\\Coding\\School Coding\\CSharpSnake\\Snake.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\samma\\Code\\Csharp\\CSharpSnake\\Snake.csproj",
+        "projectUniqueName": "D:\\Coding\\School Coding\\CSharpSnake\\Snake.csproj",
         "projectName": "Snake",
-        "projectPath": "C:\\Users\\samma\\Code\\Csharp\\CSharpSnake\\Snake.csproj",
-        "packagesPath": "C:\\Users\\samma\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\samma\\Code\\Csharp\\CSharpSnake\\obj\\",
+        "projectPath": "D:\\Coding\\School Coding\\CSharpSnake\\Snake.csproj",
+        "packagesPath": "C:\\Users\\shark\\.nuget\\packages\\",
+        "outputPath": "D:\\Coding\\School Coding\\CSharpSnake\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\samma\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\shark\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,16 +34,17 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "System.Data.SQLite": {
+              "target": "Package",
+              "version": "[1.0.118, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -60,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
