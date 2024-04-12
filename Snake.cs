@@ -52,6 +52,8 @@ class Snake
 
         Task.Run(() => timer(seconds, minutes));
 
+        GenerateApple();
+
         while (alive)
         {
             if (Console.KeyAvailable)
@@ -155,7 +157,7 @@ class Snake
         while (true)
         {
             int apple_x = random.Next(1, map_width - 1);
-            int apple_y = random.Next(1, map_height - 1);
+            int apple_y = random.Next(4, map_height - 1);
 
             applePos = new Tuple<int, int>(apple_x, apple_y);
 
