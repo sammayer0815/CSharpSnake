@@ -1215,26 +1215,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\shark\\.nuget\\packages\\": {}
+    "C:\\Users\\samma\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Coding\\School Coding\\CSharpSnake\\Snake.csproj",
+      "projectUniqueName": "C:\\Users\\samma\\Code\\CSharp\\Snake\\Snake.csproj",
       "projectName": "Snake",
-      "projectPath": "D:\\Coding\\School Coding\\CSharpSnake\\Snake.csproj",
-      "packagesPath": "C:\\Users\\shark\\.nuget\\packages\\",
-      "outputPath": "D:\\Coding\\School Coding\\CSharpSnake\\obj\\",
+      "projectPath": "C:\\Users\\samma\\Code\\CSharp\\Snake\\Snake.csproj",
+      "packagesPath": "C:\\Users\\samma\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\samma\\Code\\CSharp\\Snake\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\shark\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\samma\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
