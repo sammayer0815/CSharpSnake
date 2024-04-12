@@ -124,6 +124,8 @@ class Snake
             }
             else
             {
+                score++;
+                updateScore();
                 GenerateApple();
             }
             drawHead();
@@ -148,6 +150,13 @@ class Snake
     {
         Tuple<int, int> lastSnakePos = snakePos[snakePos.Count - 1];
         return lastSnakePos.Item1 == applePos.Item1 && lastSnakePos.Item2 == applePos.Item2;
+    }
+
+    public void updateScore()
+    {
+        Console.SetCursorPosition(11, 1);
+        Console.WriteLine(score);
+
     }
 
     public void GenerateApple()
