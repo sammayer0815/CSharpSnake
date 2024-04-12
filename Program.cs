@@ -2,14 +2,13 @@
 {
     static void Main()
     {
+        // Clear console to make sure it start at line 0
         Console.Clear();
+        // Enables special ascii characters
         Console.OutputEncoding = System.Text.Encoding.UTF8;
-        UI UIInstance = new UI();
-        UIInstance.EnterUsername();
-        // Console.Clear();
-        // drawMap();
-        // GenerateApple();
-        // snakeLoop();
+        // Makes UI instance to call the main menu
+        UI UIInstance = new();
+        UIInstance.MainMenu();
     }
 
 }

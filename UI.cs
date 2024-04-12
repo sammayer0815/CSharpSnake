@@ -1,18 +1,21 @@
 class UI
 {
-    public void ui(List<Tuple<int, int, string>> options, int optionValue, bool initialDraw)
+    // Function that draws and handels menu selection based on a tuple list
+    public void Ui(List<Tuple<int, int, string>> options, int optionValue, bool initialDraw)
     {
+        // check if its the first call in the recursion and if so it will set the selected option to option 1
         if (initialDraw)
         {
-            drawCursorPosition(options, optionValue);
+            // Sets the cursor position at the first option
+            DrawCursorPosition(options, optionValue);
         }
 
         ConsoleKeyInfo keyInfo = Console.ReadKey();
-        // Sets default selected option to 1
-        int optionsCount = options.Count();
+        // Counts how many options there are
+        int optionsCount = options.Count;
 
         // Clears option selection symbols
-        clearValues(options);
+        ClearValues(options);
 
         // Checks user input then switches selected option or enters selected option
         switch (keyInfo.Key)
@@ -31,19 +34,22 @@ class UI
                 }
             case ConsoleKey.Enter:
                 {
-                    exit(options[optionValue - 1].Item3);
+                    // Selects to selected option
+                    Exit(options[optionValue - 1].Item3);
                     break;
                 }
             default:
                 break;
         }
 
-        drawCursorPosition(options, optionValue);
-
-        ui(options, optionValue, false);
+        // Set cursor at new selected option
+        DrawCursorPosition(options, optionValue);
+        // Calls the function again with the new selected option
+        Ui(options, optionValue, false);
     }
 
-    public void drawCursorPosition(List<Tuple<int, int, string>> options, int optionValue)
+    // Function that draws the > symbol at the correct position
+    public void DrawCursorPosition(List<Tuple<int, int, string>> options, int optionValue)
     {
         // write code for function that sets the > symbol at correct position 
         int posX = options[optionValue - 1].Item1;
@@ -53,19 +59,17 @@ class UI
         Console.SetCursorPosition(posX, posY);
     }
 
-    public void exit(string selectedOption)
+    // Function that handles what happens when a option is selected
+    public void Exit(string selectedOption)
     {
         Console.Clear();
 
-        UI UIInstance = new UI();
+        UI UIInstance = new();
 
         switch (selectedOption)
         {
             case "Play":
                 UIInstance.ChooseDifficulty();
-                break;
-            case "Leaderboard":
-                UIInstance.LeaderboardMenu();
                 break;
             case "HelpMenu":
                 UIInstance.HelpMenu();
@@ -85,14 +89,11 @@ class UI
             case "MainMenu":
                 UIInstance.MainMenu();
                 break;
-            case "SubmitScore":
-                UIInstance.EnterUsername();
-                break;
-
         }
     }
 
-    static void clearValues(List<Tuple<int, int, string>> options)
+    // Function that clears the > symbol
+    static void ClearValues(List<Tuple<int, int, string>> options)
     {
         foreach (var option in options)
         {
@@ -100,7 +101,6 @@ class UI
             Console.Write(" ");
         }
     }
-
 
     public void MainMenu()
     {
@@ -115,9 +115,9 @@ class UI
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                        Play                            ┃");
-        Console.WriteLine("┃                        Leaderboard                     ┃");
         Console.WriteLine("┃                        Help                            ┃");
         Console.WriteLine("┃                        Quit                            ┃");
+        Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃              Use WASD keys to navigate.                ┃");
@@ -129,14 +129,13 @@ class UI
         Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
 
 
-        List<Tuple<int, int, string>> options = new List<Tuple<int, int, string>>
+        List<Tuple<int, int, string>> options = new()
         {
             new Tuple<int, int, string>(24, 10, "Play"),
-            new Tuple<int, int, string>(24, 11, "Leaderboard"),
-            new Tuple<int, int, string>(24, 12, "HelpMenu"),
-            new Tuple<int, int, string>(24, 13, "Quit")
+            new Tuple<int, int, string>(24, 11, "HelpMenu"),
+            new Tuple<int, int, string>(24, 12, "Quit"),
         };
-        ui(options, 1, true);
+        Ui(options, 1, true);
     }
 
     // Back to ?
@@ -167,14 +166,14 @@ class UI
         Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
 
 
-        List<Tuple<int, int, string>> options = new List<Tuple<int, int, string>>
+        List<Tuple<int, int, string>> options = new()
         {
             new Tuple<int, int, string>(24, 8, "Easy"),
             new Tuple<int, int, string>(24, 9, "Medium"),
             new Tuple<int, int, string>(24, 10, "Hard"),
             new Tuple<int, int, string>(24, 11, "MainMenu")
         };
-        ui(options, 1, true);
+        Ui(options, 1, true);
     }
 
     public void GamePlayMenu(string Difficulty)
@@ -203,9 +202,9 @@ class UI
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
 
-        Snake SnakeInstance = new Snake();
-
-        SnakeInstance.snakeLoop(Difficulty);
+        // Starts game loop
+        Snake SnakeInstance = new();
+        SnakeInstance.SnakeLoop(Difficulty);
     }
 
     public void DeathMenu(int seconds, int minutes, int score)
@@ -223,8 +222,8 @@ class UI
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃                         Play again                     ┃");
         Console.WriteLine("┃                         Main menu                      ┃");
-        Console.WriteLine("┃                         Submit score                   ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
@@ -234,106 +233,20 @@ class UI
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
 
-        //Write score
+        // Write score
         Console.SetCursorPosition(32, 8);
         Console.WriteLine(score);
-        //Write time
+        // Write time
         Console.SetCursorPosition(31, 9);
         if (minutes > 0) { Console.Write($"{minutes}:"); }
         Console.WriteLine(seconds);
 
-        List<Tuple<int, int, string>> options = new List<Tuple<int, int, string>>
+        List<Tuple<int, int, string>> options = new()
         {
-            new Tuple<int, int, string>(25, 13, "MainMenu"),
-            new Tuple<int, int, string>(25, 14, "SubmitScore"),
+            new Tuple<int, int, string>(25, 13, "Play"),
+            new Tuple<int, int, string>(25, 14, "MainMenu"),
         };
-        ui(options, 1, true);
-    }
-
-
-    public void EnterUsername()
-    {
-        Console.WriteLine("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃            Submit name:                                ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃            Max length 8 charters                       ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃            Press enter to confirm.                     ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
-
-        writeName();
-    }
-
-    public void writeName()
-    {
-        Console.SetCursorPosition(26, 6);
-        string username = Console.ReadLine()!;
-
-        switch (username.Length)
-        {
-            case var len when len == 0:
-                Console.SetCursorPosition(13, 7);
-                Console.WriteLine("Name is too short. make it longer");
-                Console.SetCursorPosition(26, 6);
-                Console.WriteLine("                               ┃");
-                writeName();
-                break;
-            case var len when len > 8:
-                Console.SetCursorPosition(13, 7);
-                Console.WriteLine("Name is too long. make it shorter");
-                Console.SetCursorPosition(26, 6);
-                Console.WriteLine("                               ┃");
-                writeName();
-                break;
-            default:
-                break;
-
-        }
-
-
-    }
-
-    public void LeaderboardMenu()
-    {
-        Console.WriteLine("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                       Leaderboard                      ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃    1.                                                  ┃");
-        Console.WriteLine("┃    2.                                                  ┃");
-        Console.WriteLine("┃    3.                                                  ┃");
-        Console.WriteLine("┃    4.                                                  ┃");
-        Console.WriteLine("┃    5.                                                  ┃");
-        Console.WriteLine("┃    6.                                                  ┃");
-        Console.WriteLine("┃    7.                                                  ┃");
-        Console.WriteLine("┃    8.                                                  ┃");
-        Console.WriteLine("┃    9.                                                  ┃");
-        Console.WriteLine("┃    10.                                                 ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃  Press ESC to return.                                  ┃");
-        Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
+        Ui(options, 1, true);
     }
 
     public void HelpMenu()
@@ -362,22 +275,10 @@ class UI
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
 
-        List<Tuple<int, int, string>> options = new List<Tuple<int, int, string>>
+        List<Tuple<int, int, string>> options = new()
         {
             new Tuple<int, int, string>(5, 20, "MainMenu"),
         };
-        ui(options, 1, true);
+        Ui(options, 1, true);
     }
-
-
-
-
-
-
-
-
-
-
-
-
 }
