@@ -1,9 +1,12 @@
-using System.Diagnostics;
-
 class UI
 {
-    public void ui(List<Tuple<int, int, string>> options, int optionValue)
+    public void ui(List<Tuple<int, int, string>> options, int optionValue, bool initialDraw)
     {
+        if (initialDraw)
+        {
+            drawCursorPosition(options, optionValue);
+        }
+
         ConsoleKeyInfo keyInfo = Console.ReadKey();
         // Sets default selected option to 1
         int optionsCount = options.Count();
@@ -14,13 +17,13 @@ class UI
         // Checks user input then switches selected option or enters selected option
         switch (keyInfo.Key)
         {
-            case ConsoleKey.UpArrow:
+            case ConsoleKey.W:
                 {
                     // Makes it so option cant be lower that 1
                     optionValue = Math.Max(1, optionValue - 1);
                     break;
                 }
-            case ConsoleKey.DownArrow:
+            case ConsoleKey.S:
                 {
                     // Makes it so option cant be higher that optionCount
                     optionValue = Math.Min(optionsCount, optionValue + 1);
@@ -35,15 +38,21 @@ class UI
                 break;
         }
 
+        drawCursorPosition(options, optionValue);
+
+        ui(options, optionValue, false);
+    }
+
+    public void drawCursorPosition(List<Tuple<int, int, string>> options, int optionValue)
+    {
         // write code for function that sets the > symbol at correct position 
         int posX = options[optionValue - 1].Item1;
         int posY = options[optionValue - 1].Item2;
         Console.SetCursorPosition(posX, posY);
         Console.Write(">");
         Console.SetCursorPosition(posX, posY);
-
-        ui(options, optionValue);
     }
+
     public void exit(string selectedOption)
     {
         Console.Clear();
@@ -59,7 +68,7 @@ class UI
                 UIInstance.LeaderboardMenu();
                 break;
             case "HelpMenu":
-                UIInstance.MainMenu();
+                UIInstance.HelpMenu();
                 break;
             case "Quit":
                 Environment.Exit(0);
@@ -72,6 +81,9 @@ class UI
                 break;
             case "Hard":
                 UIInstance.GamePlayMenu("Hard");
+                break;
+            case "MainMenu":
+                UIInstance.MainMenu();
                 break;
 
         }
@@ -105,7 +117,7 @@ class UI
         Console.WriteLine("┃                        Quit                            ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃              Use arrow keys to navigate.               ┃");
+        Console.WriteLine("┃              Use WASD keys to navigate.                ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃              Made by:  Sam Maijer                      ┃");
         Console.WriteLine("┃                        Sadek Al Mousawi                ┃");
@@ -118,10 +130,10 @@ class UI
         {
             new Tuple<int, int, string>(24, 10, "Play"),
             new Tuple<int, int, string>(24, 11, "Leaderboard"),
-            new Tuple<int, int, string>(24, 12, "Help"),
+            new Tuple<int, int, string>(24, 12, "HelpMenu"),
             new Tuple<int, int, string>(24, 13, "Quit")
         };
-        ui(options, 0);
+        ui(options, 1, true);
     }
 
     // Back to ?
@@ -159,7 +171,7 @@ class UI
             new Tuple<int, int, string>(24, 10, "Hard"),
             new Tuple<int, int, string>(24, 11, "MainMenu")
         };
-        ui(options, 0);
+        ui(options, 1, true);
     }
 
     public void GamePlayMenu(string Difficulty)
@@ -208,8 +220,8 @@ class UI
         Console.WriteLine("┃                        Rank:                           ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                        Main menu                       ┃");
-        Console.WriteLine("┃                        Submit score                    ┃");
+        Console.WriteLine("┃                         Main menu                      ┃");
+        Console.WriteLine("┃                         Submit score                   ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
@@ -297,9 +309,15 @@ class UI
         Console.WriteLine("┃    The game is over when you hit your own tail.        ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃    Go back to home                                     ┃");
+        Console.WriteLine("┃     Go back to home                                    ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
+
+        List<Tuple<int, int, string>> options = new List<Tuple<int, int, string>>
+        {
+            new Tuple<int, int, string>(5, 20, "MainMenu"),
+        };
+        ui(options, 1, true);
     }
 
 
