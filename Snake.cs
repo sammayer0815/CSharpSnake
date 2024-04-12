@@ -4,7 +4,7 @@ class Snake
     public static int pos_x = 15, pos_y = 15;
     int speed;
     public bool alive = true;
-    public  List<Tuple<int, int>> snakePos = new()
+    public List<Tuple<int, int>> snakePos = new()
     {
         new Tuple<int, int>(pos_x, pos_y)
     };
@@ -15,32 +15,43 @@ class Snake
 
     public void Timer()
     {
-        seconds++;
-        if (seconds == 60)
+        try
         {
-            minutes++;
-            seconds = 0;
+            seconds++;
+            if (seconds == 60)
+            {
+                minutes++;
+                seconds = 0;
+                lock (consoleLock)
+                {
+                    Console.SetCursorPosition(10, 2);
+                    Console.WriteLine("               ");
+                }
+            }
             lock (consoleLock)
             {
                 Console.SetCursorPosition(10, 2);
-                Console.WriteLine("               ");
+                Console.WriteLine($"{minutes}:{seconds}");
             }
+            Thread.Sleep(1000);
+            if (alive) { Timer(); }
         }
-        lock (consoleLock)
+        catch (Exception ex)
         {
-            Console.SetCursorPosition(10, 2);
-            Console.WriteLine($"{minutes}:{seconds}");
+            Console.WriteLine($"An error occurred: {ex.Message} restarting in 5 seconds...");
+            Thread.Sleep(5000);
+            // If an error occurs this restart the game
+            System.Diagnostics.Process.Start(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            Environment.Exit(0);
         }
-        Thread.Sleep(1000);
-        if (alive) { Timer(); }
     }
 
     public void SnakeLoop(string Difficulty)
     {
         //Reset start position
-        pos_x = 15; 
+        pos_x = 15;
         pos_y = 15;
-        
+
         //Set game speed
         switch (Difficulty)
         {
