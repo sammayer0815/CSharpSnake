@@ -31,7 +31,7 @@ class Snake
             Console.SetCursorPosition(10, 2);
             Console.WriteLine($"{minutes}:{seconds}");
         }
-        timer(seconds, minutes);
+        if (!alive) { timer(seconds, minutes); }
     }
 
     public void snakeLoop(string Difficulty)

@@ -85,6 +85,9 @@ class UI
             case "MainMenu":
                 UIInstance.MainMenu();
                 break;
+            case "SubmitScore":
+                UIInstance.EnterUsername();
+                break;
 
         }
     }
@@ -177,7 +180,7 @@ class UI
     public void GamePlayMenu(string Difficulty)
     {
         Console.WriteLine("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
-        Console.WriteLine("┃   Score:                                               ┃");
+        Console.WriteLine("┃   Score: 0                                             ┃");
         Console.WriteLine("┃   Time:                                                ┃");
         Console.WriteLine("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫");
         Console.WriteLine("┃                                                        ┃");
@@ -217,7 +220,7 @@ class UI
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                        Score:                          ┃");
         Console.WriteLine("┃                        Time:                           ┃");
-        Console.WriteLine("┃                        Rank:                           ┃");
+        Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                         Main menu                      ┃");
@@ -230,6 +233,21 @@ class UI
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
+
+        //Write score
+        Console.SetCursorPosition(32, 8);
+        Console.WriteLine(score);
+        //Write time
+        Console.SetCursorPosition(31, 9);
+        if (minutes > 0) { Console.Write($"{minutes}:"); }
+        Console.WriteLine(seconds);
+
+        List<Tuple<int, int, string>> options = new List<Tuple<int, int, string>>
+        {
+            new Tuple<int, int, string>(25, 13, "MainMenu"),
+            new Tuple<int, int, string>(25, 14, "SubmitScore"),
+        };
+        ui(options, 1, true);
     }
 
 
@@ -243,7 +261,7 @@ class UI
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃            Submit name:                                ┃");
         Console.WriteLine("┃                                                        ┃");
-        Console.WriteLine("┃                                                        ┃");
+        Console.WriteLine("┃            Max length 8 charters                       ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃            Press enter to confirm.                     ┃");
@@ -258,6 +276,37 @@ class UI
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
+
+        writeName();
+    }
+
+    public void writeName()
+    {
+        Console.SetCursorPosition(26, 6);
+        string username = Console.ReadLine()!;
+
+        switch (username.Length)
+        {
+            case var len when len == 0:
+                Console.SetCursorPosition(13, 7);
+                Console.WriteLine("Name is too short. make it longer");
+                Console.SetCursorPosition(26, 6);
+                Console.WriteLine("                               ┃");
+                writeName();
+                break;
+            case var len when len > 8:
+                Console.SetCursorPosition(13, 7);
+                Console.WriteLine("Name is too long. make it shorter");
+                Console.SetCursorPosition(26, 6);
+                Console.WriteLine("                               ┃");
+                writeName();
+                break;
+            default:
+                break;
+
+        }
+
+
     }
 
     public void LeaderboardMenu()
@@ -267,7 +316,7 @@ class UI
         Console.WriteLine("┃                       Leaderboard                      ┃");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫");
-        Console.WriteLine("┃                     Difficulty: Easy                   ┃");
+        Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫");
         Console.WriteLine("┃                                                        ┃");
         Console.WriteLine("┃    1.                                                  ┃");
