@@ -221,6 +221,7 @@ class Snake
     {
         alive = false;
         Console.Clear();
-        Console.WriteLine("You died");
+        UI UIInstance = new UI();
+        UIInstance.DeathMenu(seconds, minutes, score);
     }
 }

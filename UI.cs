@@ -205,7 +205,7 @@ class UI
         SnakeInstance.snakeLoop(Difficulty);
     }
 
-    public void DeathMenu()
+    public void DeathMenu(int seconds, int minutes, int score)
     {
         Console.WriteLine("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
         Console.WriteLine("┃                                                        ┃");
