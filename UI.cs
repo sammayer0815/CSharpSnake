@@ -1,5 +1,21 @@
 class UI
 {
+    private Dictionary<string, ICommand> BuildCommandMap()
+    {
+        return new Dictionary<string, ICommand>
+    {
+        { "Play", new ActionCommand(() => ChooseDifficulty()) },
+        { "HelpMenu", new ActionCommand(() => HelpMenu()) },
+        { "Quit", new ActionCommand(() => Environment.Exit(0)) },
+
+        { "Easy", new ActionCommand(() => GamePlayMenu("Easy")) },
+        { "Medium", new ActionCommand(() => GamePlayMenu("Medium")) },
+        { "Hard", new ActionCommand(() => GamePlayMenu("Hard")) },
+
+        { "MainMenu", new ActionCommand(() => MainMenu()) }
+    };
+    }
+
     // Function that draws and handels menu selection based on a tuple list
     public void Ui(List<Tuple<int, int, string>> options, int optionValue, bool initialDraw)
     {
@@ -64,33 +80,14 @@ class UI
     {
         Console.Clear();
 
-        UI UIInstance = new();
+        var commands = BuildCommandMap();
 
-        switch (selectedOption)
+        if (commands.TryGetValue(selectedOption, out ICommand? command))
         {
-            case "Play":
-                UIInstance.ChooseDifficulty();
-                break;
-            case "HelpMenu":
-                UIInstance.HelpMenu();
-                break;
-            case "Quit":
-                Environment.Exit(0);
-                break;
-            case "Easy":
-                UIInstance.GamePlayMenu("Easy");
-                break;
-            case "Medium":
-                UIInstance.GamePlayMenu("Medium");
-                break;
-            case "Hard":
-                UIInstance.GamePlayMenu("Hard");
-                break;
-            case "MainMenu":
-                UIInstance.MainMenu();
-                break;
+            command.Execute();
         }
     }
+
 
     // Function that clears the > symbol
     static void ClearValues(List<Tuple<int, int, string>> options)
