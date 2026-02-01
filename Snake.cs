@@ -52,19 +52,6 @@ class Snake
         pos_x = 15;
         pos_y = 15;
 
-        //Set game speed
-        switch (Difficulty)
-        {
-            case "Easy":
-                speed = 400;
-                break;
-            case "Medium":
-                speed = 200;
-                break;
-            case "Hard":
-                speed = 300;
-                break;
-        }
         // Start thread for timer
         Task.Run(() => Timer());
         Thread.Sleep(100);
@@ -111,6 +98,26 @@ class Snake
             Thread.Sleep(speed);
         }
     }
+
+    public void SetDifficulty(string difficulty)
+    {
+        switch (difficulty)
+        {
+            case "Easy":
+                speed = 400;
+                break;
+            case "Medium":
+                speed = 200;
+                break;
+            case "Hard":
+                speed = 300;
+                break;
+            default:
+                speed = 200;
+                break;
+        }
+    }
+
 
     // Draw snake and check if apple is eaten
     public void DrawSnake(int dir)

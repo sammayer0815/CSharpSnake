@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0pvYCM6tpGZ0qP9NM+56X5f/g3CI5DrxmzfjKMpsK/MmTSDuX9ssWrkC1HaTVANifLtAdn3r/IE0wyryMW2w9g==",
+  "dgSpecHash": "A9VkZIXiZ4RFEEWbsH7Lpos2xMvERAb1V7xtI1+xu39c7IdEI8X+eav1lUUZQEB5Q3dvDD7tTXluA5QaL/YSIQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\samma\\Code\\CSharp\\Snake\\Snake.csproj",
+  "projectFilePath": "C:\\Users\\samma\\Code\\CSharpSnake\\Snake.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

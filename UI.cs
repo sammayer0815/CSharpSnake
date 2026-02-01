@@ -203,8 +203,8 @@ class UI
         Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
 
         // Starts game loop
-        Snake SnakeInstance = new();
-        SnakeInstance.SnakeLoop(Difficulty);
+        Snake snake = GameFactory.CreateSnake(Difficulty);
+        snake.SnakeLoop(Difficulty);
     }
 
     public void DeathMenu(int seconds, int minutes, int score)
