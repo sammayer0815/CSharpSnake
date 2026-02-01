@@ -12,7 +12,12 @@ class Snake
     public Tuple<int, int> applePos = new(19, 19);
 
     private object consoleLock = new();
+    private ConsoleFacade console;
 
+    public Snake()
+    {
+        console = new ConsoleFacade(consoleLock);
+    }
     public void Timer()
     {
         try
@@ -30,8 +35,7 @@ class Snake
             }
             lock (consoleLock)
             {
-                Console.SetCursorPosition(10, 2);
-                Console.WriteLine($"{minutes}:{seconds}");
+                console.WriteLineAt(10, 2, $"{minutes}:{seconds}");
             }
             Thread.Sleep(1000);
             if (alive) { Timer(); }
@@ -160,14 +164,12 @@ class Snake
     public void DrawHead()
     {
         Tuple<int, int> lastPos = snakePos[snakePos.Count - 1];
-        Console.SetCursorPosition(lastPos.Item1, lastPos.Item2);
-        Console.Write("#");
+        console.WriteAt(lastPos.Item1, lastPos.Item2, "#");
     }
 
     public void DestroyTail()
     {
-        Console.SetCursorPosition(snakePos[0].Item1, snakePos[0].Item2);
-        Console.Write(" ");
+        console.WriteAt(snakePos[0].Item1, snakePos[0].Item2, " ");
         snakePos.RemoveAt(0);
     }
 
@@ -179,9 +181,7 @@ class Snake
 
     public void UpdateScore()
     {
-        Console.SetCursorPosition(11, 1);
-        Console.WriteLine(score);
-
+        console.WriteLineAt(11, 1, score.ToString());
     }
 
     public void GenerateApple()
@@ -201,8 +201,7 @@ class Snake
             }
         }
 
-        Console.SetCursorPosition(applePos.Item1, applePos.Item2);
-        Console.Write("@");
+        console.WriteAt(applePos.Item1, applePos.Item2, "@");
     }
 
     public void DeathCheck()
